@@ -20767,7 +20767,7 @@ var NavBar = React.createClass({
             null,
             React.createElement(
                 "nav",
-                { className: "navbar-default" },
+                { className: "navbar navbar-default" },
                 React.createElement(
                     "div",
                     { className: "navbar-header" },
@@ -20780,7 +20780,7 @@ var NavBar = React.createClass({
                     ),
                     React.createElement(
                         "a",
-                        { className: "navbar-brand", herf: "#" },
+                        { className: "navbar-brand", href: "#" },
                         "Product Shop"
                     )
                 )
