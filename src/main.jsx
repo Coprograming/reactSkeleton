@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Routes = require('./Routes.jsx');
+var NavBar = require('./components/nav/NavBar.jsx');
 
-ReactDOM.render(Routes, document.getElementById('main'));
+ReactDOM.render(
+    <NavBar/>, document.getElementById('main'));
