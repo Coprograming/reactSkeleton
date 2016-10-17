@@ -20783,6 +20783,11 @@ var NavBar = React.createClass({
                         { className: "navbar-brand", href: "#" },
                         "Product Shop"
                     )
+                ),
+                React.createElement(
+                    "div",
+                    { className: "collapse navbar-collapse", id: "nav-collapse" },
+                    React.createElement("ul", { className: "nav navbar-nav" })
                 )
             )
         );

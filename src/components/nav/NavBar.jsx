@@ -13,6 +13,9 @@ var NavBar = React.createClass({
                         </button>
                         <a className="navbar-brand" href="#">Product Shop</a>
                     </div>
+                    <div className="collapse navbar-collapse" id="nav-collapse">
+                        <ul className="nav navbar-nav"></ul>
+                    </div>
                 </nav>
             </div>
         );
