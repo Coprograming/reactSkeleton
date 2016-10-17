@@ -4,7 +4,7 @@ var NaveItem = React.createClass({
     render: function() {
         return (
             <li>
-                <a href={this.props.href}>{this.props.title}</a>
+                <a style={this.props.aStyle} href={this.props.href}>{this.props.title}</a>
             </li>
         );
     }

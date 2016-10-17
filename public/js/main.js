@@ -20764,8 +20764,29 @@ var NavBar = React.createClass({
 
     render: function () {
 
+        var navStyle = {
+            WebkitBoxShadow: "0 0 px rgba(0,0,0,0.4)",
+            MozBoxShadow: "0 0 px rgba(0,0,0,0.4)",
+            boxShadow: "0 0 px rgba(0,0,0,0.4)",
+            borderRadius: 0
+        };
+
+        var titleStyle = {};
+        var linkStyle = {};
+
+        if (this.props.bgColor) {
+            navStyle.background = this.props.bgColor;
+        }
+        if (this.props.titleColor) {
+            titleStyle.color = this.props.titleColor;
+        }
+
+        if (this.props.linkColor) {
+            linkStyle.color = this.props.linkColor;
+        }
+
         var createLinkItem = function (item, index) {
-            return React.createElement(NavItem, { key: item.title + index, href: item.href, title: item.title });
+            return React.createElement(NavItem, { aStyle: linkStyle, key: item.title + index, href: item.href, title: item.title });
         };
 
         return React.createElement(
@@ -20773,7 +20794,7 @@ var NavBar = React.createClass({
             null,
             React.createElement(
                 'nav',
-                { className: 'navbar navbar-default' },
+                { style: navStyle, className: 'navbar navbar-default' },
                 React.createElement(
                     'div',
                     { className: 'navbar-header' },
@@ -20786,7 +20807,7 @@ var NavBar = React.createClass({
                     ),
                     React.createElement(
                         'a',
-                        { className: 'navbar-brand', href: '#' },
+                        { style: titleStyle, className: 'navbar-brand', href: '#' },
                         'Product Shop'
                     )
                 ),
@@ -20818,7 +20839,7 @@ var NaveItem = React.createClass({
             null,
             React.createElement(
                 'a',
-                { href: this.props.href },
+                { style: this.props.aStyle, href: this.props.href },
                 this.props.title
             )
         );
