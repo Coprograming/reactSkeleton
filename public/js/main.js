@@ -20757,37 +20757,47 @@ process.umask = function() { return 0; };
 
 },{}],172:[function(require,module,exports){
 var React = require('react');
+var NavItem = require('./NavItem.jsx');
 
 var NavBar = React.createClass({
-    displayName: "NavBar",
+    displayName: 'NavBar',
 
     render: function () {
+
+        var createLinkItem = function (item, index) {
+            return React.createElement(NavItem, { key: item.title + index, href: item.href, title: item.title });
+        };
+
         return React.createElement(
-            "div",
+            'div',
             null,
             React.createElement(
-                "nav",
-                { className: "navbar navbar-default" },
+                'nav',
+                { className: 'navbar navbar-default' },
                 React.createElement(
-                    "div",
-                    { className: "navbar-header" },
+                    'div',
+                    { className: 'navbar-header' },
                     React.createElement(
-                        "button",
-                        { type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#nav-collapse" },
-                        React.createElement("span", { className: "icon-bar" }),
-                        React.createElement("span", { className: "icon-bar" }),
-                        React.createElement("span", { className: "icon-bar" })
+                        'button',
+                        { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#nav-collapse' },
+                        React.createElement('span', { className: 'icon-bar' }),
+                        React.createElement('span', { className: 'icon-bar' }),
+                        React.createElement('span', { className: 'icon-bar' })
                     ),
                     React.createElement(
-                        "a",
-                        { className: "navbar-brand", href: "#" },
-                        "Product Shop"
+                        'a',
+                        { className: 'navbar-brand', href: '#' },
+                        'Product Shop'
                     )
                 ),
                 React.createElement(
-                    "div",
-                    { className: "collapse navbar-collapse", id: "nav-collapse" },
-                    React.createElement("ul", { className: "nav navbar-nav" })
+                    'div',
+                    { className: 'collapse navbar-collapse', id: 'nav-collapse' },
+                    React.createElement(
+                        'ul',
+                        { className: 'nav navbar-nav' },
+                        this.props.navData.map(createLinkItem)
+                    )
                 )
             )
         );
@@ -20796,11 +20806,43 @@ var NavBar = React.createClass({
 
 module.exports = NavBar;
 
-},{"react":170}],173:[function(require,module,exports){
+},{"./NavItem.jsx":173,"react":170}],173:[function(require,module,exports){
+var React = require('react');
+
+var NaveItem = React.createClass({
+    displayName: 'NaveItem',
+
+    render: function () {
+        return React.createElement(
+            'li',
+            null,
+            React.createElement(
+                'a',
+                { href: this.props.href },
+                this.props.title
+            )
+        );
+    }
+});
+
+module.exports = NaveItem;
+
+},{"react":170}],174:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var NavBar = require('./components/nav/NavBar.jsx');
 
-ReactDOM.render(React.createElement(NavBar, null), document.getElementById('main'));
+var navLinks = [{
+    title: "Home",
+    href: "#"
+}, {
+    title: "Course",
+    href: "#"
+}, {
+    title: "Blog",
+    href: "#"
+}];
 
-},{"./components/nav/NavBar.jsx":172,"react":170,"react-dom":1}]},{},[173]);
+ReactDOM.render(React.createElement(NavBar, { bgColor: 'red', titleColor: 'white', linkColor: 'yellow', navData: navLinks }), document.getElementById('main'));
+
+},{"./components/nav/NavBar.jsx":172,"react":170,"react-dom":1}]},{},[174]);

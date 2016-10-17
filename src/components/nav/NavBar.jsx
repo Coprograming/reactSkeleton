@@ -1,7 +1,13 @@
 var React = require('react');
+var NavItem = require('./NavItem.jsx');
 
 var NavBar = React.createClass({
     render: function() {
+
+        var createLinkItem = function(item, index) {
+            return <NavItem key={item.title + index} href={item.href} title={item.title}/>;
+        }
+
         return (
             <div>
                 <nav className="navbar navbar-default">
@@ -14,7 +20,7 @@ var NavBar = React.createClass({
                         <a className="navbar-brand" href="#">Product Shop</a>
                     </div>
                     <div className="collapse navbar-collapse" id="nav-collapse">
-                        <ul className="nav navbar-nav"></ul>
+                        <ul className="nav navbar-nav">{this.props.navData.map(createLinkItem)}</ul>
                     </div>
                 </nav>
             </div>

@@ -2,5 +2,18 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var NavBar = require('./components/nav/NavBar.jsx');
 
+var navLinks = [
+    {
+        title: "Home",
+        href: "#"
+    }, {
+        title: "Course",
+        href: "#"
+    }, {
+        title: "Blog",
+        href: "#"
+    }
+];
+
 ReactDOM.render(
-    <NavBar/>, document.getElementById('main'));
+    <NavBar bgColor="red" titleColor="white" linkColor="yellow" navData={navLinks}/>, document.getElementById('main'));
