@@ -1,4 +1,6 @@
 var React = require('react');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 var NaveItem = React.createClass({
     getInitialState: function() {
@@ -15,7 +17,7 @@ var NaveItem = React.createClass({
             <li className={this.state.hover
                 ? "active"
                 : ""} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
-                <a style={this.props.aStyle} href={this.props.href}>{this.props.title}</a>
+                <Link style={this.props.aStyle} to={this.props.href}>{this.props.title}</Link>
             </li>
         );
     }
